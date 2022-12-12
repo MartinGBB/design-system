@@ -142,7 +142,12 @@ var {
 });
 
 // src/components/Box.tsx
-var Box = styled("div", {});
+var Box = styled("div", {
+  padding: "$4",
+  borderRadius: "$md",
+  backgroundColor: "$gray800",
+  border: "1px solid $gray600"
+});
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Box
