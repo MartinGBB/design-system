@@ -58,7 +58,9 @@ __export(src_exports, {
   Avatar: () => Avatar2,
   Box: () => Box,
   Button: () => Button,
+  Checkbox: () => Checkbox2,
   Heading: () => Heading,
+  MultiStep: () => MultiStep,
   Text: () => Text,
   TextArea: () => TextArea,
   TextInput: () => TextInput
@@ -172,6 +174,7 @@ var Box = styled("div", {
   backgroundColor: "$gray800",
   border: "1px solid $gray600"
 });
+Box.displayName = "Box";
 
 // src/components/Text.tsx
 var Text = styled("p", {
@@ -200,6 +203,7 @@ var Text = styled("p", {
     size: "md"
   }
 });
+Text.displayName = "Text";
 
 // src/components/Heading.tsx
 var Heading = styled("h2", {
@@ -232,8 +236,8 @@ var IconContext = /* @__PURE__ */ (0, import_react2.createContext)({
   weight: "regular",
   mirrored: false
 });
-var renderPathForWeight = function renderPathForWeight2(weight, color, pathsByWeight2) {
-  var path = pathsByWeight2.get(weight);
+var renderPathForWeight = function renderPathForWeight2(weight, color, pathsByWeight3) {
+  var path = pathsByWeight3.get(weight);
   if (!!path)
     return path(color);
   console.error('Unsupported icon weight. Choose from "thin", "light", "regular", "bold", "fill", or "duotone".');
@@ -261,7 +265,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 // ../../node_modules/phosphor-react/dist/lib/IconBase.esm.js
 var IconBase = /* @__PURE__ */ (0, import_react3.forwardRef)(function(props, ref) {
-  var alt = props.alt, color = props.color, size = props.size, weight = props.weight, mirrored = props.mirrored, children = props.children, renderPath3 = props.renderPath, restProps = _objectWithoutPropertiesLoose(props, ["alt", "color", "size", "weight", "mirrored", "children", "renderPath"]);
+  var alt = props.alt, color = props.color, size = props.size, weight = props.weight, mirrored = props.mirrored, children = props.children, renderPath5 = props.renderPath, restProps = _objectWithoutPropertiesLoose(props, ["alt", "color", "size", "weight", "mirrored", "children", "renderPath"]);
   var _useContext = (0, import_react3.useContext)(IconContext), _useContext$color = _useContext.color, contextColor = _useContext$color === void 0 ? "currentColor" : _useContext$color, contextSize = _useContext.size, _useContext$weight = _useContext.weight, contextWeight = _useContext$weight === void 0 ? "regular" : _useContext$weight, _useContext$mirrored = _useContext.mirrored, contextMirrored = _useContext$mirrored === void 0 ? false : _useContext$mirrored, restContext = _objectWithoutPropertiesLoose(_useContext, ["color", "size", "weight", "mirrored"]);
   return import_react3.default.createElement("svg", Object.assign({
     ref,
@@ -275,26 +279,17 @@ var IconBase = /* @__PURE__ */ (0, import_react3.forwardRef)(function(props, ref
     width: "256",
     height: "256",
     fill: "none"
-  }), renderPath3(weight != null ? weight : contextWeight, color != null ? color : contextColor));
+  }), renderPath5(weight != null ? weight : contextWeight, color != null ? color : contextColor));
 });
 IconBase.displayName = "IconBase";
 var IconBase_esm_default = IconBase;
 
-// ../../node_modules/phosphor-react/dist/icons/User.esm.js
+// ../../node_modules/phosphor-react/dist/icons/Check.esm.js
 var import_react4 = __toESM(require("react"));
 var pathsByWeight = /* @__PURE__ */ new Map();
 pathsByWeight.set("bold", function(color) {
-  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("circle", {
-    cx: "128",
-    cy: "96",
-    r: "64",
-    fill: "none",
-    stroke: color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "24"
-  }), import_react4.default.createElement("path", {
-    d: "M31,216a112,112,0,0,1,194,0",
+  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("polyline", {
+    points: "216 72 104 184 48 128",
     fill: "none",
     stroke: color,
     strokeLinecap: "round",
@@ -303,21 +298,8 @@ pathsByWeight.set("bold", function(color) {
   }));
 });
 pathsByWeight.set("duotone", function(color) {
-  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("circle", {
-    cx: "128",
-    cy: "96",
-    r: "64",
-    opacity: "0.2"
-  }), import_react4.default.createElement("circle", {
-    cx: "128",
-    cy: "96",
-    r: "64",
-    fill: "none",
-    stroke: color,
-    strokeMiterlimit: "10",
-    strokeWidth: "16"
-  }), import_react4.default.createElement("path", {
-    d: "M31,216a112,112,0,0,1,194,0",
+  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("polyline", {
+    points: "216 72 104 184 48 128",
     fill: "none",
     stroke: color,
     strokeLinecap: "round",
@@ -327,21 +309,12 @@ pathsByWeight.set("duotone", function(color) {
 });
 pathsByWeight.set("fill", function() {
   return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("path", {
-    d: "M231.9,212a120.7,120.7,0,0,0-67.1-54.2,72,72,0,1,0-73.6,0A120.7,120.7,0,0,0,24.1,212a7.7,7.7,0,0,0,0,8,7.8,7.8,0,0,0,6.9,4H225a7.8,7.8,0,0,0,6.9-4A7.7,7.7,0,0,0,231.9,212Z"
+    d: "M104,192a8.5,8.5,0,0,1-5.7-2.3l-56-56a8.1,8.1,0,0,1,11.4-11.4L104,172.7,210.3,66.3a8.1,8.1,0,0,1,11.4,11.4l-112,112A8.5,8.5,0,0,1,104,192Z"
   }));
 });
 pathsByWeight.set("light", function(color) {
-  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("circle", {
-    cx: "128",
-    cy: "96",
-    r: "64",
-    fill: "none",
-    stroke: color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "12"
-  }), import_react4.default.createElement("path", {
-    d: "M31,216a112,112,0,0,1,194,0",
+  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("polyline", {
+    points: "216 72 104 184 48 128",
     fill: "none",
     stroke: color,
     strokeLinecap: "round",
@@ -350,17 +323,8 @@ pathsByWeight.set("light", function(color) {
   }));
 });
 pathsByWeight.set("thin", function(color) {
-  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("circle", {
-    cx: "128",
-    cy: "96",
-    r: "64",
-    fill: "none",
-    stroke: color,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "8"
-  }), import_react4.default.createElement("path", {
-    d: "M31,216a112,112,0,0,1,194,0",
+  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("polyline", {
+    points: "216 72 104 184 48 128",
     fill: "none",
     stroke: color,
     strokeLinecap: "round",
@@ -369,16 +333,8 @@ pathsByWeight.set("thin", function(color) {
   }));
 });
 pathsByWeight.set("regular", function(color) {
-  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("circle", {
-    cx: "128",
-    cy: "96",
-    r: "64",
-    fill: "none",
-    stroke: color,
-    strokeMiterlimit: "10",
-    strokeWidth: "16"
-  }), import_react4.default.createElement("path", {
-    d: "M31,216a112,112,0,0,1,194,0",
+  return import_react4.default.createElement(import_react4.default.Fragment, null, import_react4.default.createElement("polyline", {
+    points: "216 72 104 184 48 128",
     fill: "none",
     stroke: color,
     strokeLinecap: "round",
@@ -389,11 +345,130 @@ pathsByWeight.set("regular", function(color) {
 var renderPath = function renderPath2(weight, color) {
   return renderPathForWeight(weight, color, pathsByWeight);
 };
-var User = /* @__PURE__ */ (0, import_react4.forwardRef)(function(props, ref) {
+var Check = /* @__PURE__ */ (0, import_react4.forwardRef)(function(props, ref) {
   return import_react4.default.createElement(IconBase_esm_default, Object.assign({
     ref
   }, props, {
     renderPath
+  }));
+});
+Check.displayName = "Check";
+var Check_esm_default = Check;
+
+// ../../node_modules/phosphor-react/dist/icons/User.esm.js
+var import_react5 = __toESM(require("react"));
+var pathsByWeight2 = /* @__PURE__ */ new Map();
+pathsByWeight2.set("bold", function(color) {
+  return import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("circle", {
+    cx: "128",
+    cy: "96",
+    r: "64",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }), import_react5.default.createElement("path", {
+    d: "M31,216a112,112,0,0,1,194,0",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "24"
+  }));
+});
+pathsByWeight2.set("duotone", function(color) {
+  return import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("circle", {
+    cx: "128",
+    cy: "96",
+    r: "64",
+    opacity: "0.2"
+  }), import_react5.default.createElement("circle", {
+    cx: "128",
+    cy: "96",
+    r: "64",
+    fill: "none",
+    stroke: color,
+    strokeMiterlimit: "10",
+    strokeWidth: "16"
+  }), import_react5.default.createElement("path", {
+    d: "M31,216a112,112,0,0,1,194,0",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+pathsByWeight2.set("fill", function() {
+  return import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("path", {
+    d: "M231.9,212a120.7,120.7,0,0,0-67.1-54.2,72,72,0,1,0-73.6,0A120.7,120.7,0,0,0,24.1,212a7.7,7.7,0,0,0,0,8,7.8,7.8,0,0,0,6.9,4H225a7.8,7.8,0,0,0,6.9-4A7.7,7.7,0,0,0,231.9,212Z"
+  }));
+});
+pathsByWeight2.set("light", function(color) {
+  return import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("circle", {
+    cx: "128",
+    cy: "96",
+    r: "64",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }), import_react5.default.createElement("path", {
+    d: "M31,216a112,112,0,0,1,194,0",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "12"
+  }));
+});
+pathsByWeight2.set("thin", function(color) {
+  return import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("circle", {
+    cx: "128",
+    cy: "96",
+    r: "64",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }), import_react5.default.createElement("path", {
+    d: "M31,216a112,112,0,0,1,194,0",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "8"
+  }));
+});
+pathsByWeight2.set("regular", function(color) {
+  return import_react5.default.createElement(import_react5.default.Fragment, null, import_react5.default.createElement("circle", {
+    cx: "128",
+    cy: "96",
+    r: "64",
+    fill: "none",
+    stroke: color,
+    strokeMiterlimit: "10",
+    strokeWidth: "16"
+  }), import_react5.default.createElement("path", {
+    d: "M31,216a112,112,0,0,1,194,0",
+    fill: "none",
+    stroke: color,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "16"
+  }));
+});
+var renderPath3 = function renderPath4(weight, color) {
+  return renderPathForWeight(weight, color, pathsByWeight2);
+};
+var User = /* @__PURE__ */ (0, import_react5.forwardRef)(function(props, ref) {
+  return import_react5.default.createElement(IconBase_esm_default, Object.assign({
+    ref
+  }, props, {
+    renderPath: renderPath3
   }));
 });
 User.displayName = "User";
@@ -595,12 +670,131 @@ var TextArea = styled("textarea", {
     color: "$gray400"
   }
 });
+TextArea.displayName = "TextArea";
+
+// src/components/Checkbox/styles.ts
+var Checkbox = __toESM(require("@radix-ui/react-checkbox"));
+var CheckboxContainer = styled(Checkbox.Root, {
+  all: "unset",
+  width: "$6",
+  height: "$6",
+  backgroundColor: "$gray900",
+  borderRadius: "$xs",
+  lineHeight: 0,
+  cursor: "pointer",
+  overflow: "hidden",
+  boxSizing: "border-box",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  border: "2px solid $gray900",
+  '&[data-state="checked"]': {
+    backgroundColor: "$ignite300"
+  },
+  "&:focus": {
+    border: "2px solid $ignite300"
+  }
+});
+var slideIn = keyframes({
+  from: {
+    transform: "translateY(-100%)"
+  },
+  to: {
+    transform: "translateY(0)"
+  }
+});
+var slideOut = keyframes({
+  from: {
+    transform: "translateY(0)"
+  },
+  to: {
+    transform: "translateY(-100%)"
+  }
+});
+var CheckboxIndicator = styled(Checkbox.Indicator, {
+  color: "$white",
+  width: "$4",
+  height: "$4",
+  '&[data-state="checked"]': {
+    animation: `${slideIn} 200ms ease-out`
+  },
+  '&[data-state="unchecked"]': {
+    animation: `${slideOut} 200ms ease-out`
+  }
+});
+
+// src/components/Checkbox/index.tsx
+var import_jsx_runtime3 = require("react/jsx-runtime");
+function Checkbox2(props) {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(CheckboxContainer, __spreadProps(__spreadValues({}, props), {
+    children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(CheckboxIndicator, {
+      asChild: true,
+      children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Check_esm_default, {
+        weight: "bold"
+      })
+    })
+  }));
+}
+
+// src/components/MultiStep/styles.ts
+var MultiStepContainer = styled("div", {});
+var Label = styled(Text, {
+  color: "$gray200",
+  defaultVariants: {
+    size: "xs"
+  }
+});
+var Steps = styled("div", {
+  display: "grid",
+  gridTemplateColumns: "repeat(var(--steps-size), 1fr)",
+  gap: "$2",
+  marginTop: "$1"
+});
+var Step = styled("div", {
+  height: "$1",
+  borderRadius: "$px",
+  backgroundColor: "$gray600",
+  variants: {
+    active: {
+      true: {
+        backgroundColor: "$gray100"
+      }
+    }
+  }
+});
+
+// src/components/MultiStep/index.tsx
+var import_jsx_runtime4 = require("react/jsx-runtime");
+function MultiStep({ size, currentStep = 1 }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(MultiStepContainer, {
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(Label, {
+        children: [
+          "Passo ",
+          currentStep,
+          " de ",
+          size
+        ]
+      }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Steps, {
+        css: { "--steps-size": size },
+        children: Array.from({ length: size }, (_, i) => i + 1).map((step) => {
+          return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Step, {
+            active: currentStep >= step
+          }, step);
+        })
+      })
+    ]
+  });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Avatar,
   Box,
   Button,
+  Checkbox,
   Heading,
+  MultiStep,
   Text,
   TextArea,
   TextInput
