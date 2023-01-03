@@ -227,6 +227,7 @@ var Heading = styled("h2", {
     size: "md"
   }
 });
+Heading.displayName = "Heading";
 
 // ../../node_modules/phosphor-react/dist/lib/index.esm.js
 var import_react2 = require("react");
@@ -516,6 +517,7 @@ function Avatar2(props) {
     ]
   });
 }
+Avatar2.displayName = "Avatar";
 
 // src/components/Button.tsx
 var Button = styled("button", {
@@ -588,6 +590,7 @@ var Button = styled("button", {
     size: "md"
   }
 });
+Button.displayName = "Button";
 
 // src/components/TextInput/styles.ts
 var TextInputContainer = styled("div", {
@@ -644,6 +647,7 @@ function TextInput(_a) {
     ]
   });
 }
+TextInput.displayName = "TextInput";
 
 // src/components/TextArea.tsx
 var TextArea = styled("textarea", {
@@ -735,6 +739,7 @@ function Checkbox2(props) {
     })
   }));
 }
+Checkbox2.displayName = "Checkbox";
 
 // src/components/MultiStep/styles.ts
 var MultiStepContainer = styled("div", {});
@@ -787,6 +792,7 @@ function MultiStep({ size, currentStep = 1 }) {
     ]
   });
 }
+MultiStep.displayName = "MultiStep";
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Avatar,
