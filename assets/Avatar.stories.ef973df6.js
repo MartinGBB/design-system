@@ -1,0 +1,2 @@
+import{A as t}from"./index.92a51644.js";import"./index.80b3e3b0.js";import"./iframe.f122f5ea.js";import"./index.dd974ba8.js";import"./jsx-runtime.0f9b98d3.js";const p={title:"Data display/Avatar",component:t,args:{src:"https://github.com/MartinGBB.png",alt:"Martin Brazon"},argTypes:{src:{control:{type:"text"}}}},c={},n={args:{src:void 0}},m=["Primary","WithFallback"];export{c as Primary,n as WithFallback,m as __namedExportsOrder,p as default};
+//# sourceMappingURL=Avatar.stories.ef973df6.js.map
